@@ -9,3 +9,7 @@ eureka:
 spring:
   application:
     name: movie-customer
+feign:
+    hystrix:
+      # feign熔断器开关
+      enabled: true
