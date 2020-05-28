@@ -1,10 +1,12 @@
 package com.example.bootstrap.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.bootstrap.entity.User;
 import com.example.bootstrap.feginServices.IUserService;
 
 @RestController
@@ -28,4 +30,10 @@ public class MovieController {
         String s = restTemplate.getForObject(url,String.class);
         return s;
     }
+	
+	@RequestMapping("/getUser/{id}")
+	public String getUser(@PathVariable ("id") Long id) {
+		String url = "http://"+ applicationName +"/user/"+id;
+		return restTemplate.getForObject(url,String.class);
+	}
 }

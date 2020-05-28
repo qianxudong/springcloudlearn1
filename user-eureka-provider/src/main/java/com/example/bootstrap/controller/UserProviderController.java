@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,11 @@ public class UserProviderController {
 			System.out.println("gogogo" + s);
 		}
 		return "nice to meet you!";
+	}
+	
+	@RequestMapping(value = "/user/{id}")
+	public String getUser(@PathVariable ("id") Long id){
+		return String.format("User %s  hello !", id);
 	}
 
 }
