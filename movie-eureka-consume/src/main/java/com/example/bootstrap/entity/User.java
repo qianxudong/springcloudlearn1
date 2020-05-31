@@ -1,10 +1,14 @@
 package com.example.bootstrap.entity;
 
+import java.io.Serializable;
+
 /**
  * @author Administrator
  *
  */
-public class User {
+public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String name;
 	private String address;
@@ -16,6 +20,10 @@ public class User {
 	public User(Long id) {
 		super();
 		this.id = id;
+	}
+	
+	public User(Long id, String name) {
+		this(id,name,"SHHAI");
 	}
 	
 	public User(Long id, String name, String address) {

@@ -9,7 +9,11 @@ eureka:
 spring:
   application:
     name: movie-customer
-feign:
+  thymeleaf: # THYMELEAF 
+    encoding : UTF-8
+    cache : false # 热部署静态文件
+    mode : HTML5 # 使用HTML5标准
+  feign:
     hystrix:
-      # feign熔断器开关
-      enabled: true
+    # feign熔断器开关
+    enabled: true
